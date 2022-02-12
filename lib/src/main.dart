@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-import 'features/movie/ui/pages/movie_page.dart';
+import 'ui/scenes/grandma_wakeup_scene/grandma_wakeup_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
     return MaterialApp(
-      home: const MoviePage(),
+      debugShowCheckedModeBanner: false,
+      home: GrandmaWakeUpPage(),
     );
   }
 }

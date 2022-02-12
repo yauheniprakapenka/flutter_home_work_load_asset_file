@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-Animation<double> buildWidthAnimation(Animation<double> controller) {
+Animation<double> animateJumpWithSofa(Animation<double> controller) {
   return Tween<double>(
     begin: 0.0,
-    end: 40.0,
+    end: 220.0,
   ).animate(
     CurvedAnimation(
       parent: controller,
