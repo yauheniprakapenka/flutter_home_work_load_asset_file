@@ -9,7 +9,7 @@ class SofaWindowLamp extends StatelessWidget {
   Widget build(context) {
     return SizedBox.square(
       dimension: size,
-      child: Image.asset('assets/images/interior/sofa-window-lamp.png'),
+      child: Image.asset('assets/images/interior/sofa_window_lamp.png'),
     );
   }
 }

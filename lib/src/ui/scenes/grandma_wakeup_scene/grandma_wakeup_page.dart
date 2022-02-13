@@ -3,12 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../models/turn.dart';
-import '../../scenes/grandma_wakeup_scene/animations/animate_grandma_wakeup.dart';
-import '../../scenes/grandma_wakeup_scene/animations/animate_jump_with_sofa.dart';
 import '../../widgets/widgets.dart';
-import 'animations/animate_flat_light.dart';
-import 'animations/animate_grandma_move_right.dart';
-import 'animations/animate_outside_window_light.dart';
+import 'animations/animations.dart';
 
 class GrandmaWakeUpPage extends StatefulWidget {
   const GrandmaWakeUpPage({Key? key}) : super(key: key);
@@ -28,9 +24,11 @@ class _GrandmaWakeUpPageState extends State<GrandmaWakeUpPage> with TickerProvid
 
   @override
   void dispose() {
-    _grandmaJumoWithSofaCntrl.dispose();
     _grandmaWakeupCntrl.dispose();
+    _grandmaJumoWithSofaCntrl.dispose();
     _grandmaMoveRightCntrl.dispose();
+    _oursideWindowLightCntrl.dispose();
+    _flatLightCntrl.dispose();
     super.dispose();
   }
 

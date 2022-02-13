@@ -22,5 +22,7 @@ flutter:
   assets:
     - assets/images/person/
     - assets/images/interior/
+    - assets/images/interior/door_orange/
     - assets/images/gradients/
+    - assets/images/clothes/
     
