@@ -1,3 +1,4 @@
+export 'buttons/play_button.dart';
 export 'clothes/cap_blue.dart';
 export 'gradients/orange_gradient.dart';
 export 'interior/door_orange/door_orange.dart';

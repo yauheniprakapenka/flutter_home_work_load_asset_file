@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Animation<double> animateJumpWithSofa(Animation<double> controller) {
+Animation<double> animateGrandmaStandUp(Animation<double> controller) {
   return Tween<double>(
     begin: 0.0,
     end: 220.0,

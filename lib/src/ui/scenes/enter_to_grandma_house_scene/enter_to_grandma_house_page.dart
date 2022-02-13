@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../managers/scene_manager.dart';
 import '../../widgets/widgets.dart';
 import 'animations/animations.dart';
 
@@ -23,6 +25,12 @@ class _GrandmaWakeUpPageState extends State<EnterToGrandmaHousePage> with Ticker
 
   static const _doorSize = 460.0;
   static const _doorTop = 250.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _animateScene();
+  }
 
   @override
   void dispose() {
@@ -135,7 +143,9 @@ class _GrandmaWakeUpPageState extends State<EnterToGrandmaHousePage> with Ticker
                 size: _doorSize - 300,
               ),
             ),
-            _startButton(),
+            PlayButton(onPressed: () async {
+              await _animateScene();
+            }),
           ],
         ),
       ),
@@ -144,6 +154,7 @@ class _GrandmaWakeUpPageState extends State<EnterToGrandmaHousePage> with Ticker
 
   Future<void> _animateScene() async {
     try {
+      await Future.delayed(const Duration(milliseconds: 1500));
       unawaited(_umarMoveLeftCntrl.forward().orCancel);
       await Future.delayed(const Duration(milliseconds: 500));
       unawaited(_wifeOpacityCntrl.forward().orCancel);
@@ -152,24 +163,13 @@ class _GrandmaWakeUpPageState extends State<EnterToGrandmaHousePage> with Ticker
           unawaited(_wifeMoveLeftCntrl.forward().orCancel);
           unawaited(_girlOpacityCntrl.forward().orCancel);
           unawaited(_girlIncreaseSizeCntrl.forward().orCancel);
-          await _girlMoveLeftCntrl.forward().orCancel;
+          await _girlMoveLeftCntrl.forward().orCancel.whenComplete(() {
+            Provider.of<SceneManager>(context, listen: false).nextScene();
+          });
         }),
       );
     } on Exception catch (e) {
       debugPrint(e.toString());
     }
-  }
-
-  Widget _startButton() {
-    return Positioned(
-      left: MediaQuery.of(context).size.width * 0.5,
-      bottom: 0,
-      child: ElevatedButton(
-        child: const Text('Start'),
-        onPressed: () async {
-          await _animateScene();
-        },
-      ),
-    );
   }
 }

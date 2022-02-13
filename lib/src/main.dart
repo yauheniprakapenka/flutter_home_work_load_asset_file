@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'app/movie_builder.dart';
+import 'app/movie_app.dart';
 
 void main() {
-  runApp(const MovieBuilder());
+  runApp(const MovieApp());
 }
