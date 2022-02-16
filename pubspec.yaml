@@ -10,7 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^6.0.2  
+  provider: ^6.0.2
+  flutter_svg: ^1.0.3  
 
 dev_dependencies:
   flutter_test:
@@ -31,5 +32,9 @@ flutter:
     - assets/images/body/hands/
     - assets/images/body/body/
     - assets/images/body/head/
+
+    - assets/icons/food/
+    - assets/icons/flowers/
+    - assets/icons/clothes/
     
     

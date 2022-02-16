@@ -46,7 +46,7 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
               child: Positioned.fill(child: ColoredBox(color: Colors.lime[300] ?? Colors.white)),
             ),
             const Positioned(top: 370, left: 500, child: GirlWithoutHands(size: 300)),
-            const Positioned(top: 620, left: 420, child: TableWidget(width: 500)),
+            const Positioned(top: 620, left: 420, child: GirlTable(width: 500)),
             Positioned(
               bottom: 370,
               left: 610,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../managers/scene_manager.dart';
+import '../managers/scene_manager.dart';
 
 class MovieBuilder extends StatelessWidget {
   const MovieBuilder({Key? key}) : super(key: key);

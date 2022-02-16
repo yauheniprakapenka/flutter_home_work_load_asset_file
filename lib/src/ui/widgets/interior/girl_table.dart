@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TableWidget extends StatelessWidget {
+class GirlTable extends StatelessWidget {
   final double width;
 
-  const TableWidget({Key? key, required this.width}) : super(key: key);
+  const GirlTable({Key? key, required this.width}) : super(key: key);
 
   @override
   Widget build(context) {
