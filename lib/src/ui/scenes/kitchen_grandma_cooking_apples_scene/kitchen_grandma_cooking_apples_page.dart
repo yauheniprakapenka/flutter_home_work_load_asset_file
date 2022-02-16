@@ -7,18 +7,18 @@ import '../../managers/scene_manager.dart';
 import '../../widgets/widgets.dart';
 import 'animations/animations.dart' as animation;
 
-class KitchenGrandmaCookingRisPage extends StatefulWidget {
-  const KitchenGrandmaCookingRisPage({Key? key}) : super(key: key);
+class KitchenGrandmaCookingApplesPage extends StatefulWidget {
+  const KitchenGrandmaCookingApplesPage({Key? key}) : super(key: key);
 
   @override
-  State<KitchenGrandmaCookingRisPage> createState() => _GirlPickedUpFlowerState();
+  State<KitchenGrandmaCookingApplesPage> createState() => _GirlPickedUpFlowerState();
 }
 
-class _GirlPickedUpFlowerState extends State<KitchenGrandmaCookingRisPage> with TickerProviderStateMixin {
+class _GirlPickedUpFlowerState extends State<KitchenGrandmaCookingApplesPage> with TickerProviderStateMixin {
   late final _grandmadMoveRightCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
-  late final _risMoveRightCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
+  late final _applesMoveRightCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
   late final _grandmaMoveDownCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveDownDuration));
-  late final _risMoveDownCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveDownDuration));
+  late final _applesMoveDownCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveDownDuration));
   static const _moveRightDuration = 1400;
   static const _moveDownDuration = 600;
 
@@ -31,9 +31,9 @@ class _GirlPickedUpFlowerState extends State<KitchenGrandmaCookingRisPage> with 
   @override
   void dispose() {
     _grandmadMoveRightCntrl.dispose();
-    _risMoveRightCntrl.dispose();
+    _applesMoveRightCntrl.dispose();
     _grandmaMoveDownCntrl.dispose();
-    _risMoveDownCntrl.dispose();
+    _applesMoveDownCntrl.dispose();
     super.dispose();
   }
 
@@ -48,18 +48,18 @@ class _GirlPickedUpFlowerState extends State<KitchenGrandmaCookingRisPage> with 
             ),
             Positioned(
               top: 380,
-              left: 400,
+              right: 200,
               child: AnimatedBuilder(
                 animation: _grandmadMoveRightCntrl,
                 builder: (_, __) {
                   return Padding(
-                    padding: EdgeInsets.only(left: animation.animateGrandmaMoveRight(_grandmadMoveRightCntrl).value),
+                    padding: EdgeInsets.only(right: animation.animateGrandmaMoveRight(_grandmadMoveRightCntrl).value),
                     child: AnimatedBuilder(
                       animation: _grandmaMoveDownCntrl,
                       builder: (_, __) {
                         return RotationTransition(
                           turns: AlwaysStoppedAnimation(animation.animateGrandmaMoveDown(_grandmaMoveDownCntrl).value / 360),
-                          child: const Grandma(size: 220),
+                          child: Transform(transform: Matrix4.rotationY(1800), child: const Grandma(size: 220)),
                         );
                       },
                     ),
@@ -75,24 +75,32 @@ class _GirlPickedUpFlowerState extends State<KitchenGrandmaCookingRisPage> with 
             ),
             Positioned(
               top: 450,
-              left: 500,
+              right: 520,
               child: Builder(builder: (context) {
                 return AnimatedBuilder(
-                    animation: _risMoveRightCntrl,
+                    animation: _applesMoveRightCntrl,
                     builder: (_, __) {
                       return Padding(
-                        padding: EdgeInsets.only(left: animation.animateGrandmaMoveRight(_risMoveRightCntrl).value),
+                        padding: EdgeInsets.only(right: animation.animateGrandmaMoveRight(_applesMoveRightCntrl).value),
                         child: AnimatedBuilder(
-                            animation: _risMoveDownCntrl,
+                            animation: _applesMoveDownCntrl,
                             builder: (_, __) {
                               return Padding(
-                                padding: EdgeInsets.only(top: animation.animateRisMoveDown(_risMoveDownCntrl).value),
-                                child: const Ris(width: 120),
+                                padding: EdgeInsets.only(top: animation.animateApplesMoveDown(_applesMoveDownCntrl).value),
+                                child: const Apples(width: 100),
                               );
                             }),
                       );
                     });
               }),
+            ),
+            const Positioned(
+              top: 450,
+              left: 500,
+              child: Padding(
+                padding: EdgeInsets.only(top: 50, left: 200),
+                child: Ris(width: 120),
+              ),
             ),
           ],
         ),
@@ -104,10 +112,10 @@ class _GirlPickedUpFlowerState extends State<KitchenGrandmaCookingRisPage> with 
     try {
       await Future.delayed(const Duration(milliseconds: 1000));
       unawaited(_grandmadMoveRightCntrl.forward().orCancel);
-      unawaited(_risMoveRightCntrl.forward().orCancel);
+      unawaited(_applesMoveRightCntrl.forward().orCancel);
       await Future.delayed(const Duration(milliseconds: 2000));
       unawaited(_grandmaMoveDownCntrl.forward().orCancel);
-      await _risMoveDownCntrl.forward().orCancel.whenComplete(() async {
+      await _applesMoveDownCntrl.forward().orCancel.whenComplete(() async {
         await Future.delayed(const Duration(milliseconds: 400));
         await _grandmaMoveDownCntrl.reverse();
       });
