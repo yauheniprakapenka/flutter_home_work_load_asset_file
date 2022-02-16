@@ -1,6 +1,9 @@
 export 'body/hands/left_hand.dart';
+export 'body/umar_body.dart';
+export 'body/umar_head.dart';
 export 'buttons/play_button.dart';
 export 'clothes/cap_blue.dart';
+export 'clothes/present_yellow.dart';
 export 'gradients/blue_gradient.dart';
 export 'gradients/orange_gradient.dart';
 export 'interior/door_orange/door_orange.dart';

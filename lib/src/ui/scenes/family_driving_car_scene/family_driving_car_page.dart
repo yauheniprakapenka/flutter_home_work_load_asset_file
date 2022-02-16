@@ -23,7 +23,9 @@ class _FamilyDrivingCarPageState extends State<FamilyDrivingCarPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance?.addPostFrameCallback((_) {
-      _animateScene();
+      if (_backgroundImageCntrl.hasClients) {
+        _animateScene();
+      }
     });
   }
 

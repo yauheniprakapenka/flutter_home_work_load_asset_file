@@ -27,7 +27,9 @@ flutter:
     - assets/images/gradients/
     - assets/images/clothes/
     - assets/images/city/
-    - assets/images/body/hands/
     - assets/images/plants/
+    - assets/images/body/hands/
+    - assets/images/body/body/
+    - assets/images/body/head/
     
     

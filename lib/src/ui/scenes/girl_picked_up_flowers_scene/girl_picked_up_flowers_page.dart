@@ -42,21 +42,8 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
       body: SizedBox.expand(
         child: Stack(
           children: [
-            Positioned.fill(child: ColoredBox(color: Colors.deepPurple[100] ?? Colors.white)),
             Positioned.fill(
-              child: Padding(
-                padding: const EdgeInsets.all(170.0),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(40),
-                  ),
-                  child: Image.asset(
-                    'assets/images/city/shop_flower.jpg',
-                    fit: BoxFit.cover,
-                    opacity: const AlwaysStoppedAnimation(0.7),
-                  ),
-                ),
-              ),
+              child: Positioned.fill(child: ColoredBox(color: Colors.lime[300] ?? Colors.white)),
             ),
             const Positioned(top: 370, left: 500, child: GirlWithoutHands(size: 300)),
             const Positioned(top: 620, left: 420, child: TableWidget(width: 500)),
