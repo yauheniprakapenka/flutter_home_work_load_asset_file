@@ -42,13 +42,26 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
       body: SizedBox.expand(
         child: Stack(
           children: [
-            const Positioned.fill(
-              child: BlueGradient(),
+            Positioned.fill(child: ColoredBox(color: Colors.deepPurple[100] ?? Colors.white)),
+            Positioned.fill(
+              child: Padding(
+                padding: const EdgeInsets.all(170.0),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(40),
+                  ),
+                  child: Image.asset(
+                    'assets/images/city/shop_flower.jpg',
+                    fit: BoxFit.cover,
+                    opacity: const AlwaysStoppedAnimation(0.7),
+                  ),
+                ),
+              ),
             ),
-            const Positioned(top: 340, left: 500, child: GirlWithoutHands(size: 300)),
-            const Positioned(top: 590, left: 420, child: TableWidget(width: 500)),
+            const Positioned(top: 370, left: 500, child: GirlWithoutHands(size: 300)),
+            const Positioned(top: 620, left: 420, child: TableWidget(width: 500)),
             Positioned(
-              bottom: 400,
+              bottom: 370,
               left: 610,
               child: AnimatedBuilder(
                   animation: _presentCntrl,
@@ -60,7 +73,7 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
                   }),
             ),
             Positioned(
-              top: 525,
+              top: 555,
               left: 610,
               child: AnimatedBuilder(
                   animation: _leftHandCntrl,
@@ -72,7 +85,7 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
                   }),
             ),
             Positioned(
-              top: 525,
+              top: 555,
               left: 674,
               child: AnimatedBuilder(
                   animation: _rightHandCntrl,
