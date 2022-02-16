@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-Animation<double> animateGrandmaStandUp(Animation<double> controller) {
+Animation<double> animatePresentMoveUp(Animation<double> controller) {
   return Tween<double>(
-    begin: 0.0,
-    end: 220.0,
+    begin: 0,
+    end: 30,
   ).animate(
     CurvedAnimation(
       parent: controller,

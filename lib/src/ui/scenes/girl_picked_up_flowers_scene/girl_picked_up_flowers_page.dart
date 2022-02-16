@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../managers/scene_manager.dart';
-import '../../models/turn.dart';
-import '../../widgets/gradients/blue_gradient.dart';
+import '../../widgets/body/hands/right_hand.dart';
 import '../../widgets/widgets.dart';
 import 'animations/animations.dart';
 
@@ -17,14 +16,11 @@ class GirlPickedUpFlowersPage extends StatefulWidget {
 }
 
 class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with TickerProviderStateMixin {
-  late final _leftHandCntrl = AnimationController(duration: const Duration(milliseconds: 1000), vsync: this);
-  // late final _grandmaWakeUpCntrl = AnimationController(duration: const Duration(milliseconds: 800), vsync: this);
-  // late final _grandmaStandUpCntrl = AnimationController(duration: const Duration(milliseconds: 600), vsync: this);
-  // late final _grandmaMoveRightCntrl = AnimationController(duration: const Duration(milliseconds: 1700), vsync: this);
-  // late final _windowLightOnCntrl = AnimationController(duration: Duration.zero, vsync: this);
-  // late final _flatLightOnCntrl = AnimationController(duration: _lightDuration, vsync: this);
+  late final _leftHandCntrl = AnimationController(duration: const Duration(milliseconds: _moveHandDownDuration), vsync: this);
+  late final _rightHandCntrl = AnimationController(duration: const Duration(milliseconds: _moveHandDownDuration), vsync: this);
+  late final _presentCntrl = AnimationController(duration: const Duration(milliseconds: _moveHandDownDuration), vsync: this);
 
-  // static const _lightDuration = Duration(milliseconds: 5000);
+  static const _moveHandDownDuration = 900;
 
   @override
   void initState() {
@@ -34,11 +30,9 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
 
   @override
   void dispose() {
-    // _grandmaWakeUpCntrl.dispose();
-    // _grandmaStandUpCntrl.dispose();
-    // _grandmaMoveRightCntrl.dispose();
-    // _windowLightOnCntrl.dispose();
-    // _flatLightOnCntrl.dispose();
+    _leftHandCntrl.dispose();
+    _rightHandCntrl.dispose();
+    _presentCntrl.dispose();
     super.dispose();
   }
 
@@ -51,16 +45,41 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
             const Positioned.fill(
               child: BlueGradient(),
             ),
-            Positioned(top: 340, left: 500, child: GirlWithoutHands(size: 300)),
+            const Positioned(top: 340, left: 500, child: GirlWithoutHands(size: 300)),
+            const Positioned(top: 590, left: 420, child: TableWidget(width: 500)),
             Positioned(
-              top: 520,
+              bottom: 400,
+              left: 610,
+              child: AnimatedBuilder(
+                  animation: _presentCntrl,
+                  builder: (_, __) {
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: animatePresentMoveUp(_presentCntrl).value),
+                      child: const RosesBouquet(size: 100),
+                    );
+                  }),
+            ),
+            Positioned(
+              top: 525,
               left: 610,
               child: AnimatedBuilder(
                   animation: _leftHandCntrl,
                   builder: (_, __) {
                     return Padding(
                       padding: EdgeInsets.only(top: animateLeftHandMoveDown(_leftHandCntrl).value),
-                      child: LeftHand(size: 40),
+                      child: const LeftHand(size: 40),
+                    );
+                  }),
+            ),
+            Positioned(
+              top: 525,
+              left: 674,
+              child: AnimatedBuilder(
+                  animation: _rightHandCntrl,
+                  builder: (_, __) {
+                    return Padding(
+                      padding: EdgeInsets.only(top: animateRightHandMoveDown(_leftHandCntrl).value),
+                      child: const RightHand(size: 40),
                     );
                   }),
             ),
@@ -75,19 +94,16 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
 
   Future<void> _animateScene() async {
     try {
-      await _leftHandCntrl.forward().orCancel;
-      // await Future.delayed(const Duration(milliseconds: 1500));
-      // unawaited(_windowLightOnCntrl.forward().orCancel);
-      // await Future.delayed(const Duration(milliseconds: 1000));
-      // unawaited(_flatLightOnCntrl.forward().orCancel);
-      // await Future.delayed(const Duration(milliseconds: 5000));
-      // await _grandmaWakeUpCntrl.forward().orCancel;
-      // await Future.delayed(const Duration(milliseconds: 1000));
-      // await _grandmaStandUpCntrl.forward().orCancel;
-      // await Future.delayed(const Duration(milliseconds: 1000));
-      // await _grandmaMoveRightCntrl.forward().orCancel.whenComplete(() {
-      //   Provider.of<SceneManager>(context, listen: false).nextScene();
-      // });
+      await Future.delayed(const Duration(milliseconds: 1000));
+      unawaited(_leftHandCntrl.forward().orCancel);
+      unawaited(_rightHandCntrl.forward().orCancel);
+      await Future.delayed(const Duration(milliseconds: _moveHandDownDuration + 900));
+      unawaited(_leftHandCntrl.reverse().orCancel);
+      unawaited(_rightHandCntrl.reverse().orCancel);
+      unawaited(_presentCntrl.forward().orCancel);
+      await Future.delayed(const Duration(milliseconds: 2000)).whenComplete(() {
+        Provider.of<SceneManager>(context, listen: false).nextScene();
+      });
     } on Exception catch (e) {
       debugPrint(e.toString());
     }

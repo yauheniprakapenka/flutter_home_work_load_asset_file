@@ -7,10 +7,10 @@ import '../scenes/grandma_wakeup_scene/grandma_wakeup_page.dart';
 
 class SceneManager extends ChangeNotifier {
   static const _scenes = <Widget>[
-    // GrandmaWakeUpPage(),
-    // FamilyDrivingCarPage(),
-    // EnterToGrandmaHousePage(),
+    GrandmaWakeUpPage(),
     GirlPickedUpFlowersPage(),
+    FamilyDrivingCarPage(),
+    EnterToGrandmaHousePage(),
   ];
 
   var _currentSceneIndex = 0;
