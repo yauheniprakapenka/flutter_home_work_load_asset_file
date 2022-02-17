@@ -9,7 +9,7 @@ class Ris extends StatelessWidget {
   @override
   Widget build(context) {
     return SvgPicture.asset(
-      'assets/icons/food/ris.svg',
+      'assets/images/food/ris.svg',
       width: width,
     );
   }

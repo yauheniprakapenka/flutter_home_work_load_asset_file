@@ -32,9 +32,5 @@ flutter:
     - assets/images/body/hands/
     - assets/images/body/body/
     - assets/images/body/head/
-
-    - assets/icons/food/
-    - assets/icons/flowers/
-    - assets/icons/clothes/
-    
+    - assets/images/body/tail/    
     

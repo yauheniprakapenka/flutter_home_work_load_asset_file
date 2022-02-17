@@ -9,7 +9,7 @@ class Apples extends StatelessWidget {
   @override
   Widget build(context) {
     return SvgPicture.asset(
-      'assets/icons/food/apples.svg',
+      'assets/images/food/apples.svg',
       width: width,
     );
   }

@@ -1,3 +1,4 @@
+export 'body/cat_tail.dart';
 export 'body/hands/left_hand.dart';
 export 'body/umar_body.dart';
 export 'body/umar_head.dart';
@@ -10,11 +11,13 @@ export 'gradients/blue_gradient.dart';
 export 'gradients/orange_gradient.dart';
 export 'interior/door_orange/door_orange.dart';
 export 'interior/door_orange/door_orange_outside.dart';
+export 'interior/door_red.dart';
 export 'interior/girl_table.dart';
 export 'interior/kitchen_table.dart';
 export 'interior/sofa_window_lamp.dart';
 export 'person/car_with_family.dart';
 export 'person/cat_stand.dart';
+export 'person/cat_without_tail.dart';
 export 'person/girl_with_flower.dart';
 export 'person/girl_without_hands.dart';
 export 'person/grandma.dart';
