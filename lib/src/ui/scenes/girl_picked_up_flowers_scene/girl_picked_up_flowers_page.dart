@@ -12,10 +12,10 @@ class GirlPickedUpFlowersPage extends StatefulWidget {
   const GirlPickedUpFlowersPage({Key? key}) : super(key: key);
 
   @override
-  State<GirlPickedUpFlowersPage> createState() => _GirlPickedUpFlowerState();
+  State<GirlPickedUpFlowersPage> createState() => _GirlPickedUpFlowerPageState();
 }
 
-class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with TickerProviderStateMixin {
+class _GirlPickedUpFlowerPageState extends State<GirlPickedUpFlowersPage> with TickerProviderStateMixin {
   late final _leftHandCntrl = AnimationController(duration: const Duration(milliseconds: _moveHandDownDuration), vsync: this);
   late final _rightHandCntrl = AnimationController(duration: const Duration(milliseconds: _moveHandDownDuration), vsync: this);
   late final _presentCntrl = AnimationController(duration: const Duration(milliseconds: _moveHandDownDuration), vsync: this);
@@ -42,7 +42,7 @@ class _GirlPickedUpFlowerState extends State<GirlPickedUpFlowersPage> with Ticke
       body: SizedBox.expand(
         child: Stack(
           children: [
-             Positioned.fill(
+            Positioned.fill(
               child: Image.asset('assets/images/gradients/blue_gradient.png', fit: BoxFit.cover),
             ),
             const Positioned(top: 370, left: 500, child: GirlWithoutHands(size: 300)),

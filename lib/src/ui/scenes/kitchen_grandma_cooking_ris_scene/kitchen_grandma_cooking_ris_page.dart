@@ -11,10 +11,10 @@ class KitchenGrandmaCookingRisPage extends StatefulWidget {
   const KitchenGrandmaCookingRisPage({Key? key}) : super(key: key);
 
   @override
-  State<KitchenGrandmaCookingRisPage> createState() => _GirlPickedUpFlowerState();
+  State<KitchenGrandmaCookingRisPage> createState() => _KitchenGrandmaCookingRisPageState();
 }
 
-class _GirlPickedUpFlowerState extends State<KitchenGrandmaCookingRisPage> with TickerProviderStateMixin {
+class _KitchenGrandmaCookingRisPageState extends State<KitchenGrandmaCookingRisPage> with TickerProviderStateMixin {
   late final _grandmadMoveRightCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
   late final _risMoveRightCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
   late final _grandmaMoveDownCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveDownDuration));

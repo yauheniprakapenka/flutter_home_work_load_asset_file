@@ -11,10 +11,10 @@ class UmarPickedUpPresentPage extends StatefulWidget {
   const UmarPickedUpPresentPage({Key? key}) : super(key: key);
 
   @override
-  State<UmarPickedUpPresentPage> createState() => _GirlPickedUpFlowerState();
+  State<UmarPickedUpPresentPage> createState() => _UmarPickedUpPresentPageState();
 }
 
-class _GirlPickedUpFlowerState extends State<UmarPickedUpPresentPage> with TickerProviderStateMixin {
+class _UmarPickedUpPresentPageState extends State<UmarPickedUpPresentPage> with TickerProviderStateMixin {
   late final _umarHeadCntrl = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
 
   @override

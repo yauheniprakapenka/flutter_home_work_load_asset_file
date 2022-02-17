@@ -11,10 +11,10 @@ class EnterToGrandmaHousePage extends StatefulWidget {
   const EnterToGrandmaHousePage({Key? key}) : super(key: key);
 
   @override
-  State<EnterToGrandmaHousePage> createState() => _GrandmaWakeUpPageState();
+  State<EnterToGrandmaHousePage> createState() => _EnterToGrandmaHousePageState();
 }
 
-class _GrandmaWakeUpPageState extends State<EnterToGrandmaHousePage> with TickerProviderStateMixin {
+class _EnterToGrandmaHousePageState extends State<EnterToGrandmaHousePage> with TickerProviderStateMixin {
   late final _umarMoveLeftCntrl = AnimationController(duration: const Duration(milliseconds: 2000), vsync: this);
   late final _wifeIncreaseSizeCntrl = AnimationController(duration: const Duration(milliseconds: 900), vsync: this);
   late final _wifeOpacityCntrl = AnimationController(duration: const Duration(milliseconds: 900), vsync: this);

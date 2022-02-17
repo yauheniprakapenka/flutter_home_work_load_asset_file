@@ -10,10 +10,10 @@ class KidAndCatNearDoorPage extends StatefulWidget {
   const KidAndCatNearDoorPage({Key? key}) : super(key: key);
 
   @override
-  State<KidAndCatNearDoorPage> createState() => _KidAndCatNearDoorState();
+  State<KidAndCatNearDoorPage> createState() => _KidAndCatNearDoorPageState();
 }
 
-class _KidAndCatNearDoorState extends State<KidAndCatNearDoorPage> with TickerProviderStateMixin {
+class _KidAndCatNearDoorPageState extends State<KidAndCatNearDoorPage> with TickerProviderStateMixin {
   late final _catTailMovingCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _catTailDuration));
   late final _catTailMoveUpDownCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _catTailDuration));
 
