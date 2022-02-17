@@ -16,9 +16,9 @@ class SceneManager extends ChangeNotifier {
     // GirlPickedUpFlowersPage(),
     // KitchenGrandmaCookingApplesPage(),
     // UmarPickedUpPresentPage(),
-    // FamilyDrivingCarPage(),
-    // EnterToGrandmaHousePage(),
     KidAndCatNearDoorPage(),
+    FamilyDrivingCarPage(),
+    EnterToGrandmaHousePage(),
   ];
 
   var _currentSceneIndex = 0;

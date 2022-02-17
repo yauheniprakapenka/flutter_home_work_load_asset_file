@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../managers/scene_manager.dart';
 import '../../widgets/widgets.dart';
 import 'animations/animations.dart' as animations;
 
@@ -22,7 +24,9 @@ class _KidAndCatNearDoorPageState extends State<KidAndCatNearDoorPage> with Tick
   @override
   void initState() {
     super.initState();
-    // _animateScene();
+    _animateScene().whenComplete(() {
+      Provider.of<SceneManager>(context, listen: false).nextScene();
+    });
   }
 
   @override
@@ -41,10 +45,10 @@ class _KidAndCatNearDoorPageState extends State<KidAndCatNearDoorPage> with Tick
             Positioned.fill(
               child: Image.asset('assets/images/gradients/blue_gradient.png', fit: BoxFit.cover),
             ),
-            const Positioned(top: 280, right: 260, child: DoorRed(width: 380)),
+            const Positioned(top: 280, right: 500, child: DoorRed(width: 380)),
             Positioned(
-              right: 120,
-              bottom: 200,
+              right: 220,
+              bottom: 240,
               child: AnimatedBuilder(
                 animation: _catTailMoveUpDownCntrl,
                 builder: (_, __) {
@@ -63,7 +67,8 @@ class _KidAndCatNearDoorPageState extends State<KidAndCatNearDoorPage> with Tick
                 },
               ),
             ),
-            const Positioned(right: 200, top: 740, child: CatWithoutTail(size: 140)),
+            const Positioned(right: 300, top: 700, child: CatWithoutTail(size: 140)),
+            const Positioned(left: 140, top: 320, child: WifeWithKid(size: 440)),
           ],
         ),
       ),
@@ -74,7 +79,7 @@ class _KidAndCatNearDoorPageState extends State<KidAndCatNearDoorPage> with Tick
     await Future.delayed(const Duration(milliseconds: 1000));
     var tailCounter = 0;
     try {
-      while (tailCounter < 50) {
+      while (tailCounter < 4) {
         tailCounter++;
         unawaited(_catTailMoveUpDownCntrl.forward().orCancel);
         await _catTailMovingCntrl.forward().orCancel;

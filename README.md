@@ -1,16 +1,3 @@
-# happy_birthday
+<img src="https://user-images.githubusercontent.com/47568606/154469611-8723bf2c-7053-45c5-8de3-b012d14c91cb.png" width=300> <img src="https://user-images.githubusercontent.com/47568606/154469755-dd15f8b1-1c44-4997-b7f9-39ebc93cb170.png" width=300> <img src="https://user-images.githubusercontent.com/47568606/154469832-41b30fe5-0e97-407b-a9f3-85fc37e01b08.png" width=300>
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
