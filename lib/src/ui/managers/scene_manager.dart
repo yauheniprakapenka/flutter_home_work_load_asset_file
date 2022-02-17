@@ -11,11 +11,11 @@ import '../scenes/umar_picked_up_present_scene/umar_picked_up_present_page.dart'
 
 class SceneManager extends ChangeNotifier {
   static const _scenes = <Widget>[
-    // GrandmaWakeUpPage(),
-    // KitchenGrandmaCookingRisPage(),
-    // GirlPickedUpFlowersPage(),
-    // KitchenGrandmaCookingApplesPage(),
-    // UmarPickedUpPresentPage(),
+    GrandmaWakeUpPage(),
+    KitchenGrandmaCookingRisPage(),
+    GirlPickedUpFlowersPage(),
+    KitchenGrandmaCookingApplesPage(),
+    UmarPickedUpPresentPage(),
     KidAndCatNearDoorPage(),
     FamilyDrivingCarPage(),
     EnterToGrandmaHousePage(),

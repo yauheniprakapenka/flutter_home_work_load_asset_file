@@ -102,6 +102,21 @@ class _KitchenGrandmaCookingApplesPageState extends State<KitchenGrandmaCookingA
                 child: Ris(width: 120),
               ),
             ),
+            const Positioned(
+              top: 540,
+              left: 390,
+              child: Olives(width: 120),
+            ),
+            const Positioned(
+              top: 510,
+              left: 890,
+              child: Olives(width: 120),
+            ),
+            const Positioned(
+              top: 560,
+              left: 860,
+              child: Garlic(width: 40),
+            ),
           ],
         ),
       ),

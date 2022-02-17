@@ -6,6 +6,8 @@ export 'buttons/play_button.dart';
 export 'clothes/cap_blue.dart';
 export 'clothes/present_yellow.dart';
 export 'food/apples.dart';
+export 'food/garlic.dart';
+export 'food/olives.dart';
 export 'food/ris.dart';
 export 'gradients/blue_gradient.dart';
 export 'gradients/orange_gradient.dart';
