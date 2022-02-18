@@ -22,7 +22,7 @@ class _GrandmaWakeUpPageState extends State<GrandmaWakeUpPage> with TickerProvid
   late final _windowLightOnCntrl = AnimationController(duration: Duration.zero, vsync: this);
   late final _flatLightOnCntrl = AnimationController(duration: _lightDuration, vsync: this);
 
-  static const _lightDuration = Duration(milliseconds: 5000);
+  static const _lightDuration = Duration(milliseconds: 2000);
 
   @override
   void initState() {
@@ -124,11 +124,11 @@ class _GrandmaWakeUpPageState extends State<GrandmaWakeUpPage> with TickerProvid
       unawaited(_windowLightOnCntrl.forward().orCancel);
       await Future.delayed(const Duration(milliseconds: 1000));
       unawaited(_flatLightOnCntrl.forward().orCancel);
-      await Future.delayed(const Duration(milliseconds: 5000));
+      await Future.delayed(const Duration(milliseconds: 2000));
       await _grandmaWakeUpCntrl.forward().orCancel;
-      await Future.delayed(const Duration(milliseconds: 1000));
+      await Future.delayed(const Duration(milliseconds: 500));
       await _grandmaStandUpCntrl.forward().orCancel;
-      await Future.delayed(const Duration(milliseconds: 1000));
+      await Future.delayed(const Duration(milliseconds: 500));
       await _grandmaMoveRightCntrl.forward().orCancel.whenComplete(() {
         Provider.of<SceneManager>(context, listen: false).nextScene();
       });

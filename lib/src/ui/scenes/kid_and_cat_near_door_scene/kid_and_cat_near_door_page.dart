@@ -76,7 +76,7 @@ class _KidAndCatNearDoorPageState extends State<KidAndCatNearDoorPage> with Tick
   }
 
   Future<void> _animateScene() async {
-    await Future.delayed(const Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 300));
     var tailCounter = 0;
     try {
       while (tailCounter < 4) {

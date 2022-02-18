@@ -1,4 +1,5 @@
 export 'body/cat_tail.dart';
+export 'body/hands/hand_to_left.dart';
 export 'body/hands/left_hand.dart';
 export 'body/umar_body.dart';
 export 'body/umar_head.dart';
@@ -16,6 +17,7 @@ export 'interior/door_orange/door_orange_outside.dart';
 export 'interior/door_red.dart';
 export 'interior/girl_table.dart';
 export 'interior/kitchen_table.dart';
+export 'interior/ring_bell.dart';
 export 'interior/sofa_window_lamp.dart';
 export 'person/car_with_family.dart';
 export 'person/cat_stand.dart';
