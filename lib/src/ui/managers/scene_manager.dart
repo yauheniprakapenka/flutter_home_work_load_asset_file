@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../scenes/enter_to_grandma_house_scene/enter_to_grandma_house_page.dart';
+import '../scenes/family_arrived_scene/family_arrived_page.dart';
 import '../scenes/family_driving_car_scene/family_driving_car_page.dart';
 import '../scenes/girl_picked_up_flowers_scene/girl_picked_up_flowers_page.dart';
 import '../scenes/grandma_wakeup_scene/grandma_wakeup_page.dart';
@@ -19,6 +20,7 @@ class SceneManager extends ChangeNotifier {
     UmarPickedUpPresentPage(),
     KidAndCatNearDoorPage(),
     FamilyDrivingCarPage(),
+    FamilyArrivedPage(),
     RingBellPage(),
     EnterToGrandmaHousePage(),
   ];

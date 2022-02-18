@@ -28,3 +28,5 @@ export 'person/grandma.dart';
 export 'person/umar_with_present.dart';
 export 'person/wife_with_kid.dart';
 export 'plants/roses_bouquet.dart';
+export 'street/cloud.dart';
+export 'street/grandma_house.dart';
