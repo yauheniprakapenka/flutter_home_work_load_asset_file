@@ -15,8 +15,8 @@ class KitchenGrandmaCookingApplesPage extends StatefulWidget {
 }
 
 class _KitchenGrandmaCookingApplesPageState extends State<KitchenGrandmaCookingApplesPage> with TickerProviderStateMixin {
-  late final _grandmadMoveRightCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
-  late final _applesMoveRightCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
+  late final _grandmadMoveLeftCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
+  late final _applesMoveLeftCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveRightDuration));
   late final _grandmaMoveDownCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveDownDuration));
   late final _applesMoveDownCntrl = AnimationController(vsync: this, duration: const Duration(milliseconds: _moveDownDuration));
   static const _moveRightDuration = 1400;
@@ -30,8 +30,8 @@ class _KitchenGrandmaCookingApplesPageState extends State<KitchenGrandmaCookingA
 
   @override
   void dispose() {
-    _grandmadMoveRightCntrl.dispose();
-    _applesMoveRightCntrl.dispose();
+    _grandmadMoveLeftCntrl.dispose();
+    _applesMoveLeftCntrl.dispose();
     _grandmaMoveDownCntrl.dispose();
     _applesMoveDownCntrl.dispose();
     super.dispose();
@@ -50,10 +50,10 @@ class _KitchenGrandmaCookingApplesPageState extends State<KitchenGrandmaCookingA
               top: 380,
               right: 200,
               child: AnimatedBuilder(
-                animation: _grandmadMoveRightCntrl,
+                animation: _grandmadMoveLeftCntrl,
                 builder: (_, __) {
                   return Padding(
-                    padding: EdgeInsets.only(right: animation.animateGrandmaMoveRight(_grandmadMoveRightCntrl).value),
+                    padding: EdgeInsets.only(right: animation.animateGrandmaMoveLeft(_grandmadMoveLeftCntrl).value),
                     child: AnimatedBuilder(
                       animation: _grandmaMoveDownCntrl,
                       builder: (_, __) {
@@ -78,10 +78,10 @@ class _KitchenGrandmaCookingApplesPageState extends State<KitchenGrandmaCookingA
               right: 520,
               child: Builder(builder: (context) {
                 return AnimatedBuilder(
-                    animation: _applesMoveRightCntrl,
+                    animation: _applesMoveLeftCntrl,
                     builder: (_, __) {
                       return Padding(
-                        padding: EdgeInsets.only(right: animation.animateGrandmaMoveRight(_applesMoveRightCntrl).value),
+                        padding: EdgeInsets.only(right: animation.animateGrandmaMoveLeft(_applesMoveLeftCntrl).value),
                         child: AnimatedBuilder(
                             animation: _applesMoveDownCntrl,
                             builder: (_, __) {
@@ -126,8 +126,8 @@ class _KitchenGrandmaCookingApplesPageState extends State<KitchenGrandmaCookingA
   Future<void> _animateScene() async {
     try {
       await Future.delayed(const Duration(milliseconds: 1000));
-      unawaited(_grandmadMoveRightCntrl.forward().orCancel);
-      unawaited(_applesMoveRightCntrl.forward().orCancel);
+      unawaited(_grandmadMoveLeftCntrl.forward().orCancel);
+      unawaited(_applesMoveLeftCntrl.forward().orCancel);
       await Future.delayed(const Duration(milliseconds: 2000));
       unawaited(_grandmaMoveDownCntrl.forward().orCancel);
       await _applesMoveDownCntrl.forward().orCancel.whenComplete(() async {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Animation<double> animateGrandmaMoveRight(Animation<double> controller) {
+Animation<double> animateGrandmaMoveLeft(Animation<double> controller) {
   return Tween<double>(
     begin: 0,
     end: 200,
