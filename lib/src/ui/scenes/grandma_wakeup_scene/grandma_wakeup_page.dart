@@ -109,9 +109,6 @@ class _GrandmaWakeUpPageState extends State<GrandmaWakeUpPage> with TickerProvid
                 ),
               ),
             ),
-            PlayButton(onPressed: () async {
-              await _animateScene();
-            }),
           ],
         ),
       ),

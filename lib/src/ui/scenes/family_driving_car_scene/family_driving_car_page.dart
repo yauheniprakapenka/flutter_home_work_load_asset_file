@@ -82,7 +82,6 @@ class _FamilyDrivingCarPageState extends State<FamilyDrivingCarPage> {
               ),
             ),
           ),
-          PlayButton(onPressed: _animateScene),
         ],
       ),
     );

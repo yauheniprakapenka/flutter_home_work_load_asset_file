@@ -83,9 +83,6 @@ class _GirlPickedUpFlowerPageState extends State<GirlPickedUpFlowersPage> with T
                     );
                   }),
             ),
-            PlayButton(onPressed: () async {
-              await _animateScene();
-            }),
           ],
         ),
       ),

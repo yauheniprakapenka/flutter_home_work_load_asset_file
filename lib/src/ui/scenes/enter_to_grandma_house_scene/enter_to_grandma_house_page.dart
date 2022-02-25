@@ -143,9 +143,6 @@ class _EnterToGrandmaHousePageState extends State<EnterToGrandmaHousePage> with 
                 size: _doorSize - 300,
               ),
             ),
-            PlayButton(onPressed: () async {
-              await _animateScene();
-            }),
           ],
         ),
       ),
