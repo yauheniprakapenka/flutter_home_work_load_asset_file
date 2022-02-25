@@ -41,7 +41,7 @@ class _RingBellPagePageState extends State<RingBellPage> with TickerProviderStat
               child: ColoredBox(color: Colors.white),
             ),
             Positioned(
-              child: Container(width: 820, color: Colors.grey[100] ?? Colors.white),
+              child: Container(width: 850, color: Colors.grey[100] ?? Colors.white),
             ),
             Positioned(
               top: 450,

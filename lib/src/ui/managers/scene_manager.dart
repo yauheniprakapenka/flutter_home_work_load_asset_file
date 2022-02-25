@@ -9,6 +9,7 @@ import '../scenes/kid_and_cat_near_door_scene/kid_and_cat_near_door_page.dart';
 import '../scenes/kitchen_grandma_cooking_apples_scene/kitchen_grandma_cooking_apples_page.dart';
 import '../scenes/kitchen_grandma_cooking_ris_scene/kitchen_grandma_cooking_ris_page.dart';
 import '../scenes/kitchen_grandma_with_family_scene/kitchen_grandma_with_family_page.dart';
+import '../scenes/mobile_app_scene/mobile_app_page.dart';
 import '../scenes/ring_bell_scene/ring_bell_page.dart';
 import '../scenes/umar_picked_up_present_scene/umar_picked_up_present_page.dart';
 
@@ -25,6 +26,7 @@ class SceneManager extends ChangeNotifier {
     RingBellPage(),
     EnterToGrandmaHousePage(),
     KitchenGrandmaWithFamilyPage(),
+    MobileAppPage(),
   ];
 
   var _currentSceneIndex = 0;
