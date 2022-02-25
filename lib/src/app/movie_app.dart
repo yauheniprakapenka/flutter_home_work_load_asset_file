@@ -10,8 +10,9 @@ class MovieApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => SceneManager(),
+      create: (_) => SceneManager(),
       child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: MovieBuilder(),
       ),
     );
