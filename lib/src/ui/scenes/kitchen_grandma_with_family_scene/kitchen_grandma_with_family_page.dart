@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
+import '../../managers/scene_manager.dart';
 import '../../widgets/widgets.dart';
+import 'animations/animations.dart' as animations;
 
 class KitchenGrandmaWithFamilyPage extends StatefulWidget {
   const KitchenGrandmaWithFamilyPage({Key? key}) : super(key: key);
@@ -12,7 +14,26 @@ class KitchenGrandmaWithFamilyPage extends StatefulWidget {
   State<KitchenGrandmaWithFamilyPage> createState() => _KitchenGrandmaWithFamilyPageState();
 }
 
-class _KitchenGrandmaWithFamilyPageState extends State<KitchenGrandmaWithFamilyPage> with TickerProviderStateMixin {
+class _KitchenGrandmaWithFamilyPageState extends State<KitchenGrandmaWithFamilyPage>
+    with TickerProviderStateMixin {
+  late final _wifeWithKidCntrl = AnimationController(vsync: this, duration: _duration);
+  late final _girlCntrl = AnimationController(vsync: this, duration: _duration);
+
+  static const _duration = Duration(milliseconds: 1000);
+
+  @override
+  void initState() {
+    super.initState();
+    _animateScene();
+  }
+
+  @override
+  void dispose() {
+    _wifeWithKidCntrl.dispose();
+    _girlCntrl.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(context) {
     return Scaffold(
@@ -35,12 +56,22 @@ class _KitchenGrandmaWithFamilyPageState extends State<KitchenGrandmaWithFamilyP
             ),
             Positioned(
               top: 330,
-              left: 630,
+              left: 700,
               child: RotationTransition(
                 turns: const AlwaysStoppedAnimation(0),
                 child: Transform(
                   transform: Matrix4.rotationY(1800),
-                  child: const WifeWithKid(size: 330),
+                  child: AnimatedBuilder(
+                    animation: _wifeWithKidCntrl,
+                    builder: (_, __) {
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          left: animations.animateWifeWithKid(_wifeWithKidCntrl).value,
+                        ),
+                        child: const WifeWithKid(size: 330),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -52,12 +83,20 @@ class _KitchenGrandmaWithFamilyPageState extends State<KitchenGrandmaWithFamilyP
                 child: UmarWithPresent(size: 360),
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 360,
-              right: 360,
+              right: 350,
               child: RotationTransition(
-                turns: AlwaysStoppedAnimation(0),
-                child: GirlWithFlower(size: 300),
+                turns: const AlwaysStoppedAnimation(0),
+                child: AnimatedBuilder(
+                  animation: _girlCntrl,
+                  builder: (_, __) {
+                    return Padding(
+                      padding: EdgeInsets.only(right: animations.animateGirl(_girlCntrl).value),
+                      child: const GirlWithFlower(size: 300),
+                    );
+                  },
+                ),
               ),
             ),
             const Positioned.fill(
@@ -108,19 +147,18 @@ class _KitchenGrandmaWithFamilyPageState extends State<KitchenGrandmaWithFamilyP
               left: 860,
               child: Garlic(width: 40),
             ),
-            Positioned(
-              bottom: 300,
-              right: 320,
-              child: Lottie.network(
-                'https://assets5.lottiefiles.com/packages/lf20_fgltupfx.json',
-                height: 160,
-              ),
-            ),
           ],
         ),
       ),
     );
   }
 
-  Future<void> _animateScene() async {}
+  Future<void> _animateScene() async {
+    await Future.delayed(const Duration(milliseconds: 1500));
+    unawaited(_wifeWithKidCntrl.forward().orCancel);
+    unawaited(_girlCntrl.forward().orCancel);
+    await Future.delayed(const Duration(milliseconds: 3000)).whenComplete(() {
+      Provider.of<SceneManager>(context, listen: false).nextScene();
+    });
+  }
 }
